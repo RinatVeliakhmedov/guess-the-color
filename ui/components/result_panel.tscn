@@ -1,0 +1,124 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://ui/components/result_panel.gd" id="1_result"]
+
+[node name="ResultPanel" type="PanelContainer"]
+mouse_filter = 1
+theme_type_variation = &"SoftPanel"
+script = ExtResource("1_result")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Left" type="VBoxContainer" parent="HBox"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+mouse_filter = 2
+theme_override_constants/separation = -4
+alignment = 1
+
+[node name="Accuracy" type="Label" parent="HBox/Left"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BigNumber"
+text = "96.2%"
+
+[node name="VerdictRow" type="HBoxContainer" parent="HBox/Left"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="Verdict" type="Label" parent="HBox/Left/VerdictRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"Verdict"
+text = "Match!"
+
+[node name="Need" type="Label" parent="HBox/Left/VerdictRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"SmallFaint"
+text = "needed 90%"
+vertical_alignment = 1
+
+[node name="Right" type="VBoxContainer" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="Points" type="Label" parent="HBox/Right"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"Points"
+text = "+353"
+
+[node name="Sub" type="Label" parent="HBox/Right"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"SmallDim"
+text = "streak 5"
+
+[node name="Gap" type="Control" parent="HBox/Right"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Diffs" type="HBoxContainer" parent="HBox/Right"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="RName" type="Label" parent="HBox/Right/Diffs"]
+layout_mode = 2
+theme_type_variation = &"ChannelSmall"
+theme_override_colors/font_color = Color(0.909804, 0.588235, 0.560784, 1)
+text = "R"
+
+[node name="RValue" type="Label" parent="HBox/Right/Diffs"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_type_variation = &"SmallDim"
+text = "0"
+
+[node name="GapG" type="Control" parent="HBox/Right/Diffs"]
+custom_minimum_size = Vector2(28, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="GName" type="Label" parent="HBox/Right/Diffs"]
+layout_mode = 2
+theme_type_variation = &"ChannelSmall"
+theme_override_colors/font_color = Color(0.560784, 0.839216, 0.65098, 1)
+text = "G"
+
+[node name="GValue" type="Label" parent="HBox/Right/Diffs"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_type_variation = &"SmallDim"
+text = "0"
+
+[node name="GapB" type="Control" parent="HBox/Right/Diffs"]
+custom_minimum_size = Vector2(28, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="BName" type="Label" parent="HBox/Right/Diffs"]
+layout_mode = 2
+theme_type_variation = &"ChannelSmall"
+theme_override_colors/font_color = Color(0.560784, 0.690196, 0.933333, 1)
+text = "B"
+
+[node name="BValue" type="Label" parent="HBox/Right/Diffs"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_type_variation = &"SmallDim"
+text = "0"

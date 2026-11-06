@@ -1,0 +1,9 @@
+# Godot cache
+.godot/
+
+# Exported builds (keep .gdignore so Godot skips this folder)
+build/*
+!build/.gdignore
+
+# Local tool settings
+.claude/

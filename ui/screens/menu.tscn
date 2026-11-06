@@ -1,0 +1,151 @@
+[gd_scene format=3 uid="uid://cohxjh27nvkpm"]
+
+[ext_resource type="Script" uid="uid://cdglgcy2uy7r8" path="res://ui/screens/menu.gd" id="1_menu"]
+[ext_resource type="PackedScene" path="res://ui/components/option_row.tscn" id="2_row"]
+[ext_resource type="Script" uid="uid://b00kn4tfbyvm8" path="res://ui/components/key_hints.gd" id="3_hints"]
+
+[node name="Menu" type="Control" unique_id=1000586784]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_menu")
+
+[node name="Center" type="CenterContainer" parent="." unique_id=1693200781]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Column" type="VBoxContainer" parent="Center" unique_id=1890160140]
+custom_minimum_size = Vector2(540, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Chips" type="HBoxContainer" parent="Center/Column" unique_id=1758495980]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Chip1" type="Panel" parent="Center/Column/Chips" unique_id=69316083]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"Chip"
+
+[node name="Chip2" type="Panel" parent="Center/Column/Chips" unique_id=1974590294]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"Chip"
+
+[node name="Chip3" type="Panel" parent="Center/Column/Chips" unique_id=537121977]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"Chip"
+
+[node name="Chip4" type="Panel" parent="Center/Column/Chips" unique_id=2046740366]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"Chip"
+
+[node name="Chip5" type="Panel" parent="Center/Column/Chips" unique_id=2115575012]
+custom_minimum_size = Vector2(22, 22)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"Chip"
+
+[node name="Gap1" type="Control" parent="Center/Column" unique_id=1008215780]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Center/Column" unique_id=347930572]
+layout_mode = 2
+theme_type_variation = &"Title"
+text = "Guess the Color"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Center/Column" unique_id=2145294720]
+layout_mode = 2
+theme_type_variation = &"Subtitle"
+text = "Recreate the color with red, green and blue."
+horizontal_alignment = 1
+
+[node name="Gap2" type="Control" parent="Center/Column" unique_id=1882688902]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Options" type="VBoxContainer" parent="Center/Column" unique_id=1156040410]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Difficulty" parent="Center/Column/Options" unique_id=816560163 instance=ExtResource("2_row")]
+unique_name_in_owner = true
+layout_mode = 2
+title = "Difficulty"
+
+[node name="Colors" parent="Center/Column/Options" unique_id=1815876636 instance=ExtResource("2_row")]
+unique_name_in_owner = true
+layout_mode = 2
+title = "Colors"
+
+[node name="Timer" parent="Center/Column/Options" unique_id=1969101273 instance=ExtResource("2_row")]
+unique_name_in_owner = true
+layout_mode = 2
+title = "Timer"
+
+[node name="Gap3" type="Control" parent="Center/Column" unique_id=1459746046]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="StartButton" type="Button" parent="Center/Column" unique_id=1004470673]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+focus_mode = 0
+theme_type_variation = &"PrimaryButton"
+theme_override_font_sizes/font_size = 20
+text = "Start"
+
+[node name="Gap4" type="Control" parent="Center/Column" unique_id=1261624126]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="BestLabel" type="Label" parent="Center/Column" unique_id=1832338380]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"BodyDim"
+text = "No score yet for this mode"
+horizontal_alignment = 1
+
+[node name="Hints" type="HBoxContainer" parent="." unique_id=528936470]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -48.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 26
+alignment = 1
+script = ExtResource("3_hints")
+hints = PackedStringArray("@up @down:choose", "@left @right:change", "Enter:start", "WASD:works too")

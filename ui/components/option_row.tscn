@@ -1,0 +1,57 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://ui/components/option_row.gd" id="1_row"]
+[ext_resource type="Script" path="res://ui/components/triangle.gd" id="2_tri"]
+
+[node name="OptionRow" type="PanelContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 62)
+theme_type_variation = &"RowPanel"
+script = ExtResource("1_row")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Texts" type="VBoxContainer" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = -2
+alignment = 1
+
+[node name="Title" type="Label" parent="HBox/Texts"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"RowTitle"
+text = "Option"
+
+[node name="Info" type="Label" parent="HBox/Texts"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"RowInfo"
+text = "Description"
+
+[node name="Left" type="Control" parent="HBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("2_tri")
+direction = Vector2(-1, 0)
+
+[node name="Value" type="Label" parent="HBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_type_variation = &"RowValue"
+text = "Value"
+horizontal_alignment = 1
+
+[node name="Right" type="Control" parent="HBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 0)
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("2_tri")

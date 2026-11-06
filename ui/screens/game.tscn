@@ -1,0 +1,250 @@
+[gd_scene format=3 uid="uid://d3jgecj1616fu"]
+
+[ext_resource type="Script" uid="uid://dv2e4vxddi81y" path="res://ui/screens/game.gd" id="1_game"]
+[ext_resource type="PackedScene" path="res://ui/components/stat.tscn" id="2_stat"]
+[ext_resource type="Script" uid="uid://cmlf5qjt7kw0u" path="res://ui/components/lives_dots.gd" id="3_lives"]
+[ext_resource type="PackedScene" path="res://ui/components/swatch.tscn" id="4_swatch"]
+[ext_resource type="PackedScene" path="res://ui/components/rgb_slider.tscn" id="5_slider"]
+[ext_resource type="PackedScene" path="res://ui/components/result_panel.tscn" id="6_result"]
+[ext_resource type="Script" uid="uid://b00kn4tfbyvm8" path="res://ui/components/key_hints.gd" id="7_hints"]
+
+[node name="Game" type="Control" unique_id=1803977957]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_game")
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=1465827317]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 14
+
+[node name="Column" type="VBoxContainer" parent="Margin" unique_id=1309786344]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 16
+
+[node name="Hud" type="Control" parent="Margin/Column" unique_id=992010446]
+custom_minimum_size = Vector2(0, 46)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Left" type="HBoxContainer" parent="Margin/Column/Hud" unique_id=1054311459]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 420.0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Score" parent="Margin/Column/Hud/Left" unique_id=532117103 instance=ExtResource("2_stat")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+caption = "SCORE"
+
+[node name="Streak" parent="Margin/Column/Hud/Left" unique_id=1117885396 instance=ExtResource("2_stat")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+caption = "STREAK"
+
+[node name="Best" parent="Margin/Column/Hud/Left" unique_id=539019038 instance=ExtResource("2_stat")]
+unique_name_in_owner = true
+layout_mode = 2
+caption = "BEST"
+
+[node name="Center" type="VBoxContainer" parent="Margin/Column/Hud" unique_id=1009460897]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_right = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="LivesCaption" type="Label" parent="Margin/Column/Hud/Center" unique_id=1762714462]
+layout_mode = 2
+theme_type_variation = &"Caption"
+text = "LIVES"
+horizontal_alignment = 1
+
+[node name="LivesDots" type="Control" parent="Margin/Column/Hud/Center" unique_id=1425028235]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 14)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+script = ExtResource("3_lives")
+
+[node name="Right" type="HBoxContainer" parent="Margin/Column/Hud" unique_id=630584878]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="Time" parent="Margin/Column/Hud/Right" unique_id=750954577 instance=ExtResource("2_stat")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+caption = "TIME"
+value = "--"
+alignment_h = 2
+
+[node name="Need" parent="Margin/Column/Hud/Right" unique_id=288465759 instance=ExtResource("2_stat")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+caption = "NEED"
+value = "90%"
+alignment_h = 2
+
+[node name="TimerBar" type="ProgressBar" parent="Margin/Column" unique_id=399306747]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"TimerBar"
+max_value = 1.0
+step = 0.0
+value = 1.0
+show_percentage = false
+
+[node name="Swatches" type="HBoxContainer" parent="Margin/Column" unique_id=1612656759]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 16
+
+[node name="Target" parent="Margin/Column/Swatches" unique_id=95309925 instance=ExtResource("4_swatch")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Yours" parent="Margin/Column/Swatches" unique_id=276929034 instance=ExtResource("4_swatch")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+caption = "YOURS"
+
+[node name="Bottom" type="HBoxContainer" parent="Margin/Column" unique_id=1816819719]
+custom_minimum_size = Vector2(0, 152)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 16
+
+[node name="Sliders" type="VBoxContainer" parent="Margin/Column/Bottom" unique_id=1265822120]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="R" parent="Margin/Column/Bottom/Sliders" unique_id=1118137268 instance=ExtResource("5_slider")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="G" parent="Margin/Column/Bottom/Sliders" unique_id=1520240972 instance=ExtResource("5_slider")]
+unique_name_in_owner = true
+layout_mode = 2
+channel = 1
+
+[node name="B" parent="Margin/Column/Bottom/Sliders" unique_id=1959473850 instance=ExtResource("5_slider")]
+unique_name_in_owner = true
+layout_mode = 2
+channel = 2
+
+[node name="Result" parent="Margin/Column/Bottom" unique_id=1680868127 instance=ExtResource("6_result")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ActionButton" type="Button" parent="Margin/Column/Bottom" unique_id=404605662]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+focus_mode = 0
+theme_type_variation = &"PrimaryButton"
+
+[node name="Labels" type="VBoxContainer" parent="Margin/Column/Bottom/ActionButton" unique_id=523982230]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="ActionTitle" type="Label" parent="Margin/Column/Bottom/ActionButton/Labels" unique_id=206700934]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"ButtonTitle"
+text = "Match"
+horizontal_alignment = 1
+
+[node name="ActionKeys" type="Label" parent="Margin/Column/Bottom/ActionButton/Labels" unique_id=2036186429]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"ButtonKey"
+text = "Enter  /  Space"
+horizontal_alignment = 1
+
+[node name="HintsRow" type="Control" parent="Margin/Column" unique_id=1895397848]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="PlayHints" type="HBoxContainer" parent="Margin/Column/HintsRow" unique_id=1074462517]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 26
+alignment = 1
+script = ExtResource("7_hints")
+hints = PackedStringArray("@up @down:slider", "@left @right:adjust", "Shift:fine", "Enter Space:match", "Esc:menu")
+
+[node name="ResultHints" type="HBoxContainer" parent="Margin/Column/HintsRow" unique_id=2071899149]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 26
+alignment = 1
+script = ExtResource("7_hints")
+hints = PackedStringArray("Enter:continue", "Esc:menu")
