@@ -29,3 +29,7 @@ To make the web build, install the 4.7.2 export templates, create the `build/web
 - `main.gd` runs the game flow
 - `game/` holds the rules, scoring and saved progress
 - `ui/` holds the theme, reusable components and screens
+
+## License
+
+MIT. See [LICENSE](LICENSE).
